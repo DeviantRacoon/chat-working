@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Section, Container, Input, Button, Title, Form, FileInput } from "../components"
+import { Section, Container, Input, Button, Title, Form, FileInput } from "../components/custom-components"
 
 export default function Register() {
     const [loading, setLoading] = useState(false);

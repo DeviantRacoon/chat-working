@@ -1,4 +1,4 @@
-import { Section, Input, Button, Title, Form } from "../components"
+import { Section, Input, Button, Title, Form } from "../components/custom-components"
 
 export default function ConfirmEmail() {
   return (

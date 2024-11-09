@@ -13,6 +13,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
   loading?: boolean;
   disabled?: boolean;
+  color?: "blue" | "red" | "green" | "orange" | "white" | "black";
 }
 
 export default function Button({
@@ -26,7 +27,17 @@ export default function Button({
   loading = false,
   disabled = false,
   type = "button",
+  color = "blue",
 }: ButtonProps) {
+  const colors = {
+    blue: "bg-blue-800 text-gray-200",
+    red: "bg-red-600 text-gray-100",
+    green: "bg-green-500 text-gray-100",
+    orange: "bg-orange-500 text-gray-100",
+    white: "bg-white text-gray-800",
+    black: "bg-black text-gray-100",
+  };
+
   const transformLabel = (label: string): string => {
     return label
       .toLowerCase()
@@ -54,8 +65,8 @@ export default function Button({
       whileHover={hoverEffect && !loading && !disabled ? { scale: 1.05 } : {}}
       whileTap={!loading && !disabled ? { scale: 0.95, boxShadow: "inset 0 0 0 2px #3B82F6" } : {}}
       disabled={disabled || loading}
-      className={`bg-blue-800 text-gray-200 transition duration-300 ease-in-out rounded inline-flex items-center justify-center font-semibold shadow-md ${sizes[size]} ${hoverClass} ${clickAnimation} ${fullWidth ? "w-full" : ""
-        } ${disabled || loading ? "opacity-50 cursor-not-allowed" : ""}`}
+      className={`transition duration-300 ease-in-out rounded inline-flex items-center justify-center font-semibold shadow-md ${sizes[size]} ${hoverClass} ${clickAnimation} ${fullWidth ? "w-full" : ""
+        } ${disabled || loading ? "opacity-50 cursor-not-allowed" : ""} ${colors[color]}`}
       aria-label={newLabel}
       aria-live="polite"
     >

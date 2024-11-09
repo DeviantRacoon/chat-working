@@ -18,7 +18,8 @@ type CustomInputProps = {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: () => void;
   onBlur?: () => void;
-  error?: string | null;  // Cambiamos a string | null para mostrar el mensaje
+  onKeyUp?: (event: React.KeyboardEvent) => void | false;
+  error?: string | null; 
 };
 
 const sizeClasses = {
@@ -37,6 +38,7 @@ export default function Input({
   disabled = false,
   className = "",
   onChange,
+  onKeyUp,
   onFocus,
   onBlur,
   name,
@@ -72,6 +74,7 @@ export default function Input({
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
+          onKeyUp={onKeyUp}
           className={`w-full border ${error ? "border-red-500" : "border-gray-200"} rounded-md shadow-sm focus:outline-none focus:ring-2 ${error ? "focus:ring-red-500" : "focus:ring-indigo-400"} transition duration-300 ease-in-out ${sizeClasses[size]} ${Icon ? "pl-12" : "pl-4"} ${disabled ? "bg-gray-100 cursor-not-allowed" : ""
             }`}
         />

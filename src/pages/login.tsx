@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Button, Input, Title, Form, Section } from "../components";
+import { Button, Input, Title, Form, Section } from "../components/custom-components";
 import { UserCircleIcon, LockClosedIcon } from "@heroicons/react/20/solid";
 
 export default function Login() {
