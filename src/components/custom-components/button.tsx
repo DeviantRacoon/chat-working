@@ -63,9 +63,9 @@ export default function Button({
       onClick={handle}
       type={type}
       whileHover={hoverEffect && !loading && !disabled ? { scale: 1.05 } : {}}
-      whileTap={!loading && !disabled ? { scale: 0.95, boxShadow: "inset 0 0 0 2px #3B82F6" } : {}}
+      // whileTap={!loading && !disabled ? { scale: 0.95, boxShadow: "inset 0 0 0 2px #3B82F6" } : {}}
       disabled={disabled || loading}
-      className={`transition duration-300 ease-in-out rounded inline-flex items-center justify-center font-semibold shadow-md ${sizes[size]} ${hoverClass} ${clickAnimation} ${fullWidth ? "w-full" : ""
+      className={`transition duration-300 ease-in-out rounded inline-flex items-center justify-center font-semibold ${sizes[size]} ${hoverClass} ${clickAnimation} ${fullWidth ? "w-full" : ""
         } ${disabled || loading ? "opacity-50 cursor-not-allowed" : ""} ${colors[color]}`}
       aria-label={newLabel}
       aria-live="polite"

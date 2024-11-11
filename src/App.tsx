@@ -6,7 +6,7 @@ import { Login, Register, ConfirmEmail, Lobby } from "./pages"
 export default function App() {
 
   return (
-    <main className="min-h-screen bg-gray-200">
+    <main className="min-h-screen bg-gray-900">
       {/* <Login /> */}
       {/* <Register /> */}
       {/* <ConfirmEmail /> */}

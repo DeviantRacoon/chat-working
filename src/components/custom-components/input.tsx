@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { SVGProps, useState } from "react";
 import { motion } from "framer-motion";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/20/solid";
 
@@ -7,8 +7,11 @@ type CustomInputProps = {
   type?: string;
   placeholder?: string;
   size?: "small" | "medium" | "large";
+  backgroundColor?: string;
+  borderColor?: string;
+  color?: string;
   className?: string;
-  icon?: any;
+  icon?: React.FC<SVGProps<SVGSVGElement>>;
   required?: boolean;
   disabled?: boolean;
   name?: string;
@@ -46,6 +49,9 @@ export default function Input({
   id,
   autoComplete = "off",
   error,
+  backgroundColor = "bg-gray-200",
+  borderColor = "border-blue-300",
+  color = "text-gray-800",
 }: CustomInputProps) {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -75,7 +81,7 @@ export default function Input({
           onFocus={onFocus}
           onBlur={onBlur}
           onKeyUp={onKeyUp}
-          className={`w-full border ${error ? "border-red-500" : "border-gray-200"} rounded-md shadow-sm focus:outline-none focus:ring-2 ${error ? "focus:ring-red-500" : "focus:ring-indigo-400"} transition duration-300 ease-in-out ${sizeClasses[size]} ${Icon ? "pl-12" : "pl-4"} ${disabled ? "bg-gray-100 cursor-not-allowed" : ""
+          className={`w-full ${backgroundColor} ${color} ${borderColor} ${error ? "border-red-500" : "border-gray-200"} rounded-md shadow-sm focus:outline-none focus:ring-2 ${error ? "focus:ring-red-500" : "focus:ring-indigo-400"} transition duration-300 ease-in-out ${sizeClasses[size]} ${Icon ? "pl-12" : "pl-4"} ${disabled ? "bg-gray-100 cursor-not-allowed" : ""
             }`}
         />
 
@@ -98,3 +104,4 @@ export default function Input({
     </motion.div>
   );
 }
+
